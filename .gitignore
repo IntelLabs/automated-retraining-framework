@@ -1,0 +1,10 @@
+.vscode
+.git-*
+.DS_Store
+
+logs/
+build/
+checkpoints/
+__pycache__/
+automated_retraining.egg-info/
+et-venv/

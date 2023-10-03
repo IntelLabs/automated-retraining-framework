@@ -1,0 +1,38 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+type: object
+properties:
+  $schema:
+    type: string
+  type:
+    type: string
+  properties:
+    type: object
+    properties:
+      model_config:
+        type: object
+        properties:
+          type:
+            type: string
+          properties:
+            type: object
+            properties:
+              model_name:
+                type: object
+                properties:
+                  type:
+                    type: string
+              architecture:
+                type: object
+                properties:
+                  type:
+                    type: string
+          required:
+            type: array
+            items:
+              type: string
+  required:
+    type: array
+    items:
+      type: string

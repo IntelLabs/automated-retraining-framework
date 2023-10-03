@@ -1,0 +1,29 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+---
+config: training
+model_config:
+  model_name: CIFAR10Model
+  architecture: resnet18
+training_params:
+  batch_size: 128
+  weight_decay: 0.0002
+  lr: 0.001
+  gamma: 0.5
+  momentum: 0.9
+training_config:
+  with_validation: true
+  results_dir: "./logs/"
+  experiment: CIFAR10-training-debug
+  max_epochs: 3
+  early_stopping: true
+  stopping_metric: validation/epoch_loss
+  patience: 10
+  device: cpu
+dataset_config:
+  datamodule: CIFAR10DataModule
+  dataset_dir: "./datasets/CIFAR10"
+  n_samples: 1000
+  num_classes:
+    target: 10

@@ -1,0 +1,58 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+type: object
+properties:
+  $schema:
+    type: string
+  type:
+    type: string
+  properties:
+    type: object
+    properties:
+      training_config:
+        type: object
+        properties:
+          type:
+            type: string
+          properties:
+            type: object
+            properties:
+              with_validation:
+                type: object
+                properties:
+                  type:
+                    type: string
+              results_dir:
+                type: object
+                properties:
+                  type:
+                    type: string
+              experiment:
+                type: object
+                properties:
+                  type:
+                    type: string
+              max_epochs:
+                type: object
+                properties:
+                  type:
+                    type: string
+              device:
+                type: object
+                properties:
+                  type:
+                    type: string
+              logger:
+                type: object
+                properties:
+                  type:
+                    type: string
+          required:
+            type: array
+            items:
+              type: string
+  required:
+    type: array
+    items:
+      type: string

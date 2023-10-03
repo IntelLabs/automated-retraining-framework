@@ -1,0 +1,63 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+type: object
+properties:
+  $schema:
+    type: string
+  type:
+    type: string
+  properties:
+    type: object
+    properties:
+      simulator_config:
+        type: object
+        properties:
+          type:
+            type: string
+          properties:
+            type: object
+            properties:
+              n_samples:
+                type: object
+                properties:
+                  type:
+                    type: string
+              in_distribution_file:
+                type: object
+                properties:
+                  type:
+                    type: string
+              out_distribution_file:
+                type: object
+                properties:
+                  type:
+                    type: string
+              distribution_shift:
+                type: object
+                properties:
+                  type:
+                    type: string
+              n_shift:
+                type: object
+                properties:
+                  type:
+                    type: string
+              distribution:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+          required:
+            type: array
+            items:
+              type: string
+  required:
+    type: array
+    items:
+      type: string
