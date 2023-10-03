@@ -1,0 +1,37 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+---
+config: active_learning_standalone
+model_config:
+  model_name: ActiveModel
+  architecture: resnet18
+training_params:
+  batch_size: 64
+  weight_decay: 0.0002
+  lr: 0.001
+  gamma: 0.5
+  momentum: 0.9
+training_config:
+  with_validation: false
+  results_dir: "./logs/"
+  experiment: CIFAR10-al-standalone-debug
+  max_epochs: 3
+  early_stopping: true
+  stopping_metric: validation/epoch_loss
+  patience: 5
+  device: cpu
+  log_dir: logdir
+dataset_config:
+  datamodule: CIFAR10DataModule
+  dataset_dir: "./datasets/CIFAR10"
+  n_samples: 1000
+  num_classes:
+    target: 10
+active_params:
+  n_query: 20
+  n_iter: 3
+  strategy: EntropySampling
+  model_selection_method: LEEP
+  state_estimation_method: ExpectedCalibrationError
+  chkpt_dir: "./checkpoints/al_checkpoints/cifar10"

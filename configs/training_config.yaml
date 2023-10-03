@@ -1,0 +1,32 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+---
+config: training    ## required
+model_config:
+  model_name: MNISTModel   ## required
+  architecture: resnet18   ## required
+  # calibration: TemperatureScaling   ## optional post-hoc calibration method, defaults to None
+training_params:
+  # batch_size: 64    ## optional, defaults to 64
+  weight_decay: 0.0002    ## required
+  lr: 0.1   ## required
+  gamma: 0.1    ## required
+  momentum: 0.9   ## required
+training_config:
+  with_validation: true   ## required
+  results_dir: "./logs/"    ## required
+  experiment: MNISTTraining   ## required
+  max_epochs: 10    ## required
+  device: cpu    ## required
+  # early_stopping: true    ## optional, defaults to False
+  # stopping_metric: validation/epoch_loss    ## optional, but required when early_stopping == True 
+  # patience: 10    ## optional, defaults to 5
+  # use_milestones: true    ## optional, defaults to False
+  # log_interval: 10    ## optional, defaults to 5
+  # save_best: true   ## optional, default to False
+  # saving_metric: validation/epoch_loss    ## optional, default depends on early_stopping and stopping_metric values
+dataset_config:
+  datamodule: MNISTDataModule    ## required
+  dataset_dir: "./datasets/MNIST"    ## required
+  # n_samples: 20   ## optional, defaults to full dataset

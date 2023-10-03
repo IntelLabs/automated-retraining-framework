@@ -1,0 +1,17 @@
+# General
+jsonschema
+mypy
+numpy
+pandas
+Pillow
+pyyaml
+scikit_learn
+scipy
+tensorboard
+tqdm
+
+# Pytorch 
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.13.1
+torchvision==0.11.3+cu113
+torchmetrics==0.10.3

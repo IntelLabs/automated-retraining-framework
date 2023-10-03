@@ -1,0 +1,51 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+---
+config: active_learning_standalone    ## required
+model_config:
+  model_name: ActiveModel   ## required
+  architecture: resnet18   ## required
+  # calibration: TemperatureScaling   ## optional, defaults to None
+training_params:
+  # batch_size: 64    ## optional, defaults to 64
+  weight_decay: 0.0002    ## required
+  lr: 0.1   ## required
+  gamma: 1    ## required
+  momentum: 0   ## required
+training_config:
+  with_validation: false    ## required
+  results_dir: "./logs/"    ## required
+  experiment: ActiveLearningStandalone   ## required
+  max_epochs: 10    ## required 
+  device: cpu    ## required
+  # early_stopping: true    ## optional, defaults to False
+  # stopping_metric: validation/epoch_loss    ## optional, but required when early_stopping == True 
+  # patience: 10    ## optional, defaults to 5
+  use_milestones: true    ## optional, defaults to False
+  # log_interval: 10    ## optional, defaults to 5
+  # save_best: true   ## optional, default to False
+  # saving_metric: validation/epoch_loss    ## optional, default depends on early_stopping and stopping_metric values
+dataset_config:
+  datamodule: MNISTDataModule    ## required
+  dataset_dir: "./datasets/MNIST"    ## required
+  n_samples: 1000    ## required, 0 uses full dataset
+active_params:
+  n_query: 20   ## required
+  n_iter: 3   ## required
+  strategy: EntropySampling   ## required
+  model_selection_method: LEEP    ## required
+  state_estimation_method: ExpectedCalibrationError   ## required
+  state_estimation_host: datacenter   ## required
+  chkpt_dir: "./checkpoints/al_checkpoints/"    ## required
+  # starting_chkpt: "./checkpoints/al_checkpoints/resnet110_chkpt200.pt"    ## required
+simulator_config:
+  n_samples: 100    ## required
+  in_distribution_file: "./in_distribution.txt"    ## required
+  out_distribution_file: "./out_distribution.txt"    ## required
+  distribution_shift: HardSwitch    ## required
+  n_shift: 5    ## required only for HardSwitch and UniformShift distribution shifts
+  # distribution:   ## required only for Static distribution shift
+  # - 0.5
+  # - 0.5
+

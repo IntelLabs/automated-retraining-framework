@@ -1,0 +1,67 @@
+# Copyright (C) 2023 Intel Corporation
+# SPDX-License-Identifier: MIT License
+ 
+type: object
+properties:
+  $schema:
+    type: string
+  type:
+    type: string
+  properties:
+    type: object
+    properties:
+      active_params:
+        type: object
+        properties:
+          type:
+            type: string
+          properties:
+            type: object
+            properties:
+              n_query:
+                type: object
+                properties:
+                  type:
+                    type: string
+              n_iter:
+                type: object
+                properties:
+                  type:
+                    type: string
+              strategy:
+                type: object
+                properties:
+                  type:
+                    type: string
+              model_selection_method:
+                type: object
+                properties:
+                  type:
+                    type: string
+              state_estimation_method:
+                type: object
+                properties:
+                  type:
+                    type: string
+              chkpt_dir:
+                type: object
+                properties:
+                  type:
+                    type: string
+              starting_chkpt:
+                type: object
+                properties:
+                  type:
+                    type: string
+          optional:
+            type: array
+            items:
+              type: string
+          required:
+            type: array
+            items:
+              type: string
+  required:
+    type: array
+    items:
+      type: string
