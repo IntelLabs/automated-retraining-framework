@@ -12,6 +12,6 @@ tqdm
 
 # Pytorch 
 --extra-index-url https://download.pytorch.org/whl/cu113
-torch==2.7.0
+torch==2.7.1
 torchvision==0.14.1
 torchmetrics==0.10.3
