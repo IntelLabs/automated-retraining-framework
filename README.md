@@ -1,3 +1,10 @@
+> [!WARNING]
+> **THIS PROJECT IS ARCHIVED**  
+> Intel will not provide or guarantee development of or support for this project,
+> including but not limited to, maintenance, bug fixes, new releases or updates.
+>
+> Patches to this project are no longer accepted by Intel.  
+
 # Automated Retraining Framework: Build, Test, and Deploy Efficient Neural Network Models with Active Learning Workflows
 
 This repo contains code to train, fine-tune, and develop active learning workflows with models using data such as visual imagery.
